@@ -1,0 +1,48 @@
+<!-- Page title-->
+<h3 class="card-title text-center m-4">Create a new event</h3>
+
+  <!-- Form zone-->
+<div class="container col-6">
+
+  <!-- We use the method create from the registration page,  -->
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+  <%= label_tag 'Title' %>
+  <%= text_field_tag 'title', @event.title, placeholder: "Your title", class: "form-control mb-3" %>
+
+  <%= label_tag 'Start date' %>
+  <%= text_field_tag 'start_date', @event.start_date, placeholder: "Exemple: 2020/06/12 12:00:00", class: "form-control mb-4" %>
+
+  <%= label_tag 'Duration' %>
+  <%= text_field_tag 'duration', @event.duration, placeholder: "Duration must be a multiple of 5", class: "form-control mb-4" %>
+
+  <%= label_tag 'Description' %>
+  <%= text_area_tag 'description', @event.description, placeholder: "A short description of your event", class: "form-control mb-4" %>
+
+  <%= label_tag 'Price' %>
+  <%= text_field_tag 'price', @event.price, placeholder: "Price in euros (without the € sign)", class: "form-control mb-4" %>
+
+  <%= label_tag 'Location' %>
+  <%= text_field_tag 'location', @event.location, placeholder: "Address of the event", class: "form-control mb-4" %>
+
+  <%= submit_tag "Create event", class: "btn btn-primary" %>
+
+  <% end %>
+
+  <!-- To show possible errors -->
+  <% if @event.errors.any? %>
+
+  <div class="alert alert-danger alert-dismissible fade show m-4" role="alert">
+    <p><strong>We couldn't create the event for the following reason(s) :</strong></p>
+    <ul>
+      <% @event.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <% end %>
+    </ul>
+  </div>
+
+  <% end %>
+</div>
