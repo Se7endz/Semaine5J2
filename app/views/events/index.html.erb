@@ -1,0 +1,29 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+
+<div class="jumbotron text-center">
+	<h1 class="display-5">Inscrit toi pour créer un Event dans ta ville !</h1>
+
+	<hr class="my-4 col-8">
+	<%= link_to "Add event", new_event_path, class:"btn btn-primary" %>
+</div>
+
+
+<div class="container"> 
+	<div class="row"> 
+		<h4 class="font-weight-bold">Events</h4>
+	</div>
+	<div class="row justify-content-between">
+		<% @all_events.reverse.each do |event| %>
+		<div class="card col-12 mb-3">
+			<div class="card-body">
+				<h5 class="card-title"><%= event.title %></h5>
+				<h6 class="card-subtitle mb-2 text-muted"><%= event.location %></h6>
+				<p class="card-text"><%= event.price %> €</p>
+				<%= link_to "Details",  event_path(event.id), class:"btn-primary btn-sm" %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>

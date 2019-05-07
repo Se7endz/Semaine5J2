@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
 def index
-	@all_events = Event.all.reverse	
+	@all_events = Event.all
 end
 
 def new
@@ -9,21 +9,15 @@ def new
 	end
 
 def create 
-		@event = Event.new(user_id: current_user,
-			title: params[:title],
+e = Event.create(title: params[:title],
+			description: params[:description],
 			start_date: params[:start_date],
 			duration: params[:duration],
-			description: params[:description],
-			price: params[:price],
-			location: params[:location]			
-			)
-
-			if @event.save
-				flash[:success] = "Event successfully added! 👍"
-      			redirect_to events_path #Affiche l'index des gossips
-    		else
-      			render 'new' # Reste sur la view de gossips New.
-    		end
+			price: params[:price], 
+			user_id: 2
+		)
+		
+  	
 end
 
 
@@ -33,11 +27,11 @@ end
 
 	def update
 	@event_current = Event.find(params[:id])
-	@event_current.update(title: params[:event][:title],
-			description: params[:event][:description],
-			start_date: params[:event][:start_date],
-			duration: params[:event][:duration],
-			price: params[:event][:price]
+	@event_current.update(title: params[:title],
+			description: params[:description],
+			start_date: params[:start_date],
+			duration: params[:duration],
+			price: params[:price]
 		)
 	end
 
