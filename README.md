@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Voici ma version thp d'event-bride, soit event-meet!
 
-Things you may want to cover:
+on clone le repo dans un dossier
+on run 
+rails db:create puis
+rails db:migrate puis 
+rails server pour la version en developpement a cette adresse : http://localhost:3000!
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Sinon il y a aussi la version en production disponible ici :
+          https://eventmeet.herokuapp.com/
+          
+          
+Enjoy GL & HF
