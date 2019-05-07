@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-encoding: utf-8
+
 def index
 	@all_events = Event.all.reverse	
 end
