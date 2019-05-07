@@ -1,0 +1,22 @@
+<%= form_for(:user, :url => session_path(:user)) do |f| %>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+     <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="http://chittagongit.com/images/login-button-icon/login-button-icon-5.jpg" id="icon" alt="User Icon" />
+    </div><br><br><br><br><br><br><br><br>
+</div>
+  <div class="card card-signin my-5">
+    <%= f.text_field :email, placeholder: 'example@example.com' %>
+  </div>
+  <div class="card card-signin my-5">
+    <%= f.password_field :password %>
+  </div>
+  <div class="form-group">
+    <%= f.check_box :remember_me %>
+    <%= f.label :remember_me %>
+  </div>
+
+  <%= f.submit 'Log In', class: 'btn btn-primary' %>
+  <%# link_to "Forgot your password?", new_password_path(:user) %>
+<% end %>

@@ -1,0 +1,38 @@
+<h1>Bienvenue sur Event-Meet !!</h1>
+  <% if user_signed_in? %>
+  <h2>Ton Profil :</h2>
+    <button type="button" class="btn btn-outline-danger btn-lg btn-block">
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    </button>
+
+    <button type="button" class="btn btn-outline-dark btn-lg btn-block">
+      <%= link_to "Secret page", static_pages_secret_path %>
+    </button>
+
+    <button type="button" class="btn btn-outline-primary btn-lg btn-block">
+      <%= link_to "Edit email / password", edit_user_registration_path %>
+    </button>
+    <div style="margin: 25% 0 25% 0; text-align: center;" class="card text-white bg-info mb-3" style="max-width: 18rem;">
+  <div class="card-header">Info</div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text">Voici ton email : <%= current_user.email %></p>
+  </div>
+</div>
+  <% else %>
+
+<button type="button" class="btn btn-outline-primary btn-lg btn-block">
+
+      <%= link_to "Connecte toi", new_user_session_path %>
+
+</button>
+
+ <button type="button" class="btn btn-outline-primary btn-lg btn-block"> 
+ 	
+      <%= link_to "Inscrit toi", new_user_registration_path %>
+	
+</button>
+</div>
+</div>
+  <% end %>
+</ul>
